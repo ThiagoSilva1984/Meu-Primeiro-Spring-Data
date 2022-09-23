@@ -1,13 +1,33 @@
 package br.com.alura.springdata;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class SpringDataApplication {
+import br.com.alura.springdata.orm.Cargo;
+import br.com.alura.springdata.repository.CargoRepository;
 
+@SpringBootApplication
+public class SpringDataApplication implements CommandLineRunner{
+	
+	private final CargoRepository repository; 
+	
+	//esse é o construtora da minha classe SpringDataApplication
+	public SpringDataApplication(CargoRepository repository) {
+		this.repository = repository;
+	}
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		Cargo cargo = new Cargo();
+		cargo.setDescricao("DESENVOLVEDOR DE SOFTWARE");
+		
+		repository.save(cargo);
+		
 	}
 
 }
