@@ -2,10 +2,13 @@
 
 package br.com.alura.springdata.orm;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity // com essa anotação estou dizendo para o spring essa
@@ -20,7 +23,9 @@ public class Cargo {
 					    									//o framework vai fazer automaticamente. a strategia é o IDENTY p gerar o id sequenciados
 	private Integer id;
 	private String descricao;
-
+	@OneToMany(mappedBy = "cargo")
+	private List<Funcionario> funcionario;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -37,4 +42,17 @@ public class Cargo {
 		this.descricao = descricao;
 	}
 
+	public List<Funcionario> getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(List<Funcionario> funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	@Override
+	public String toString() {
+		return "ID Cargo: " + id 
+				+ "\nDescricao: " + descricao;
+	}
 }

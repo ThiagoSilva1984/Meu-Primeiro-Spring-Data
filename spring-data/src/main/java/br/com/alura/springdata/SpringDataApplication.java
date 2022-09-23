@@ -16,7 +16,7 @@ public class SpringDataApplication implements CommandLineRunner {
 	
 	private final CrudCargoService cargoService;
 
-	// esse é o construtora da minha classe SpringDataApplication
+	// esse é o construtor da minha classe SpringDataApplication
 	public SpringDataApplication(CrudCargoService cargoService) {
 		this.cargoService = cargoService;
 	}
