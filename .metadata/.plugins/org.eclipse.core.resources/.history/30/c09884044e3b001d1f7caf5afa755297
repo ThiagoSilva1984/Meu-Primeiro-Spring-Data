@@ -1,0 +1,21 @@
+package br.com.alura.springdata.service;
+
+import org.springframework.stereotype.Service;
+
+import br.com.alura.springdata.repository.CargoRepository;
+
+
+//outra classe vai depender dessa, para isso vamos fazer uma anotação
+@Service
+public class CrudCargoService {
+	//classe para criar a lógica para inserir os valores no banco de dados
+	
+	private final CargoRepository cargoRepository;
+	
+	
+	public CrudCargoService(CargoRepository cargoRepository) {
+		this.cargoRepository = cargoRepository;
+	}
+	
+
+}
