@@ -76,7 +76,6 @@ public class CrudCargoService {
 	}
 	
 	private void deletar(Scanner sc) {
-		visualizar();
 		System.out.println("ID do cargo a ser deletado:");
 		int id = sc.nextInt();
 		cargoRepository.deleteById(id);
